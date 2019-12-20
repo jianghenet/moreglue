@@ -1,3 +1,25 @@
 .icon-totot{
   font-size: 18px;
 }
+
+#aside{
+  width: 180px;
+  border-right: solid 1px grey;
+  height: 100%;
+  display: inline-block;
+}
+
+#container{
+  position: absolute;
+  display: inline-block;
+  left: 200px;
+  border-top: solid 1px grey;
+}
+
+#container div.inactive {
+  display: none;
+}
+
+#container div.active {
+  display: block;
+}

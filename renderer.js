@@ -12,3 +12,27 @@ function showClock(){
   }, 500);
   return clock;
 }
+
+function addEventHandler(){
+  let asideNav = document.getElementById('aside');
+  asideNav.addEventListener('click', (evt)=>{
+    let target = evt.target;
+    if(target && target.hash){
+      let elId = target.hash.replace("#", '')
+      let toolDiv = document.getElementById(elId);
+      toolDiv.classList.replace('inactive' , 'active');
+    }
+  });
+
+  let calculatorDiv = document.getElementById("calculator");
+  let resultsDiv = document.getElementById('results');
+  calculatorDiv.addEventListener('keypress', (evt)=>{
+    if(String(evt.keyCode) == '13'){
+      if(evt.target && evt.target.name == 'stdin'){
+        let result =  eval(evt.target.value);
+        resultsDiv.innerHTML = `<span>${result}</span>`
+      }
+
+    }
+  });
+}
