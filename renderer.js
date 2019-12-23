@@ -26,13 +26,47 @@ function addEventHandler(){
 
   let calculatorDiv = document.getElementById("calculator");
   let resultsDiv = document.getElementById('results');
+  let functionsDiv = document.getElementById('functions');
+  let stdinInput = document.getElementById('stdin');
+  let cmdDiv = document.getElementById('cmd-buttons');
   calculatorDiv.addEventListener('keypress', (evt)=>{
-    if(String(evt.keyCode) == '13'){
+    if(evt.ctrlKey && String(evt.keyCode) == '13'){
       if(evt.target && evt.target.name == 'stdin'){
         let result =  eval(evt.target.value);
         resultsDiv.innerHTML = `<span>${result}</span>`
       }
-
     }
   });
+
+  functionsDiv.addEventListener('click', (evt) => {
+    var funcBtn = null;
+    if(evt.target.tagName.toLowerCase() === 'button'){
+      funcBtn = evt.target;
+    }
+    if(evt.target.parentElement.tagName.toLowerCase() === 'button'){
+      funcBtn = evt.target.parentElement;
+    }
+    if(funcBtn){
+      var functionName = funcBtn.name;
+      stdinInput.value = stdinInput.value + functionName+"()";
+    }
+  });
+
+  cmdDiv.addEventListener('click', (evt) => {
+    if(evt.target.tagName.toLowerCase() == 'input'){
+      switch (evt.target.name){
+        case 'clear':
+          stdinInput.value = '';
+          resultsDiv.innerHTML = '';
+          break;
+        case 'execute':
+          let result =  eval(stdinInput.value);
+          resultsDiv.innerHTML = `<span>${result}</span>`;
+          break;
+        default:
+          break;
+      }
+    }
+  });
+
 }

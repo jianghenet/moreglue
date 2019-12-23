@@ -18,8 +18,17 @@
       </nav>
       <div id='container'>
         <div id='calculator' class="inactive">
-          <input type="text" name="stdin" value="">
+          <textarea id='stdin' name="stdin" value=""></textarea>
+          <div id='cmd-buttons'>
+            <input type="button" name="clear" value="清空">
+            <input type="button" name="execute" value="运算">
+          </div>
+
           <div id='results'></div>
+          <div id='functions'>
+            <button type="button" name="Math.pow" title="指数函数: Math.pow(x,y)">x<sup>y</sup></button>
+            <button type="button" name="Math.sqrt" title="求X平方根: Math.sqrt(x)">√x</button>
+          </div>
         </div>
       </div>
     </div>
