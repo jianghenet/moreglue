@@ -16,39 +16,24 @@
     </script>
   </head>
   <body>
-    <nav id="aside">
-      <ul>
-        <li>
-          <a href="#/home">首页</a>
-        </li>
-        <li>
-          <a href="#/counter">计数游戏</a>
-        </li>
-        <li><a href="#/math">数学计算器</a></li>
-      </ul>
-    </nav>
-    <div id="root"></div>
-    <script>
-      {
-        const scripts = [];
-
-        // Dynamically insert the DLL script in development env in the
-        // renderer process
-        if (process.env.NODE_ENV === 'development') {
-          scripts.push('../dll/renderer.dev.dll.js');
-        }
-
-        // Dynamically insert the bundled app script in the renderer process
-        const port = process.env.PORT || 1212;
-        const scriptPath = process.env.START_HOT ? `http://localhost:${port}/dist/renderer.dev.js` : './dist/renderer.prod.js';
-        scripts.push(scriptPath);
-
-        document.write(
-          scripts
-            .map(script => `<script defer src="${script}"><\/script>`)
-            .join('')
-        );
-      }
-    </script>
+    <div id="alternative-to-body"></div>
   </body>
+  <script>
+    {
+      const scripts = [];
+
+      // Dynamically insert the DLL script in development env in the
+      // renderer process
+      if (process.env.NODE_ENV === 'development') {
+        scripts.push('../dll/renderer.dev.dll.js');
+      }
+
+      // Dynamically insert the bundled app script in the renderer process
+      const port = process.env.PORT || 1212;
+      const scriptPath = process.env.START_HOT ? `http://localhost:${port}/dist/renderer.dev.js` : './dist/renderer.prod.js';
+      scripts.push(scriptPath);
+      const scriptsHTML = scripts.map(script => `<script defer src="${script}"><\/script>`).join('');
+      document.write(scriptsHTML);
+    }
+  </script>
 </html>
