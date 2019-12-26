@@ -1,0 +1,11 @@
+.stdin {
+  width: 680px;
+  height: 110px;
+  border-radius: 6px 6px 0px;
+  resize: vertical;
+}
+
+.results{
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
