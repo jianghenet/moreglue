@@ -8,7 +8,7 @@ export default function() {
   }
   return (
     <MainContainer>
-      <textarea id="stdin" name="stdin" value="" />
+      <textarea id="stdin" name="stdin" />
       <div id="cmd-buttons">
         <button type="button">清空</button>
         <button type="button" onClick={execute}>
