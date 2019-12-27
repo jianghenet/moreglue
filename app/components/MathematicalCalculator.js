@@ -13,9 +13,11 @@ export default class MathematicalCalculator extends React.Component<Props> {
 
   execute() {
     const { userstdin } = this.state;
-    // eslint-disable-next-line no-eval
-    const result = eval(userstdin);
-    this.setState({ result });
+    if (userstdin) {
+      // eslint-disable-next-line no-eval
+      const result = eval(userstdin);
+      this.setState({ result });
+    }
   }
 
   clear() {
@@ -88,6 +90,79 @@ export default class MathematicalCalculator extends React.Component<Props> {
           >
             √x
           </button>
+          <button
+            data-tip="E 返回算术常量 e，即自然对数的底数（约等于2.718）。"
+            type="button"
+            onClick={() => {
+              this.appendFunc('Math.E');
+            }}
+          >
+            E
+          </button>
+          <button
+            data-tip="LN2 返回 2 的自然对数（约等于0.693）。"
+            type="button"
+            onClick={() => {
+              this.appendFunc('Math.LN2');
+            }}
+          >
+            LN2
+          </button>
+          <button
+            data-tip="LN10 返回 10 的自然对数（约等于2.302）。"
+            type="button"
+            onClick={() => {
+              this.appendFunc('Math.LN10');
+            }}
+          >
+            LN10
+          </button>
+          <button
+            data-tip="LOG2E	返回以 2 为底的 e 的对数（约等于 1.414）。"
+            type="button"
+            onClick={() => {
+              this.appendFunc('Math.LOG2E');
+            }}
+          >
+            LOG2E
+          </button>
+          <button
+            data-tip="LOG10E 返回以 10 为底的 e 的对数（约等于0.434）。"
+            type="button"
+            onClick={() => {
+              this.appendFunc('Math.LOG10E');
+            }}
+          >
+            LOG10E
+          </button>
+          <button
+            data-tip="PI 返回圆周率（约等于3.14159）。"
+            type="button"
+            onClick={() => {
+              this.appendFunc('Math.PI');
+            }}
+          >
+            PI
+          </button>
+          <button
+            data-tip="SQRT1_2 返回返回 2 的平方根的倒数（约等于 0.707）。"
+            type="button"
+            onClick={() => {
+              this.appendFunc('Math.SQRT1_2');
+            }}
+          >
+            SQRT1_2
+          </button>
+          <button
+            data-tip="SQRT2 返回 2 的平方根（约等于 1.414）。"
+            type="button"
+            onClick={() => {
+              this.appendFunc('Math.SQRT2');
+            }}
+          >
+            SQRT2
+          </button>
+
           <ReactTooltip
             html={!!true}
             place="right"
