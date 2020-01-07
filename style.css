@@ -1,9 +1,12 @@
+body{
+  overflow: hidden;
+}
 .icon-totot{
   font-size: 18px;
 }
 
 #aside{
-  width: 180px;
+  width: 156px;
   border-right: solid 1px grey;
   height: 100%;
   display: inline-block;
@@ -12,7 +15,9 @@
 #container{
   position: absolute;
   display: inline-block;
-  left: 200px;
+  left: 168px;
+  top: 20px;
+  width: 1300px;
   border-top: solid 1px grey;
 }
 
@@ -23,3 +28,9 @@
 #container div.active {
   display: block;
 }
+
+#iciba{height: 730px;}
+#iciba-webview{height: 720px;}
+
+#zdic{height: 730px;}
+#zdic-webview{height: 720px;}

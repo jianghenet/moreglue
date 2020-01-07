@@ -3,18 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval'">
     <title>Hello World!</title>
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
-    <header>
-      <span class='icon-totot'>💃</span><span id='clock'></span>
-    </header>
     <div id='main-div'>
       <nav id='aside'>
-        <a href="#calculator">计算器</a>
+        <ul>
+          <li>
+            <a href="#calculator">计算器</a>
+          </li>
+          <li>
+            <a href="#iciba">金山词霸</a>
+          </li>
+          <li>
+            <a href="#zdic">汉语词典</a>
+          </li>
+        </ul>
+        <span class='icon-totot'>💃</span>
       </nav>
       <div id='container'>
         <div id='calculator' class="inactive">
@@ -30,9 +36,18 @@
             <button type="button" name="Math.sqrt" title="求X平方根: Math.sqrt(x)">√x</button>
           </div>
         </div>
-      </div>
-    </div>
 
+        <div id='iciba' class="inactive">
+          <webview id="iciba-webview" src="http://www.iciba.com/" disablewebsecurity='true' partition='icibawebview'></webview>
+        </div>
+
+        <div id='zdic' class="inactive">
+          <webview id="zdic-webview" src="https://www.zdic.net/" disablewebsecurity='true' partition='zdicwebview'></webview>
+        </div>
+      </div>
+      
+    </div>
+    
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
   </body>

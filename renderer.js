@@ -4,24 +4,21 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
-function showClock(){
-  let clock = document.getElementById('clock');
-
-  setInterval(()=>{
-    clock.innerText = new Date().toLocaleString();
-  }, 500);
-  return clock;
-}
 
 function addEventHandler(){
   let asideNav = document.getElementById('aside');
+  let containerDiv = document.getElementById('container');
   asideNav.addEventListener('click', (evt)=>{
     let target = evt.target;
     if(target && target.hash){
+      for(i=0; i<containerDiv.children.length; i++){
+        containerDiv.children[i].classList.replace('active', 'inactive');
+      };
       let elId = target.hash.replace("#", '')
       let toolDiv = document.getElementById(elId);
-      toolDiv.classList.replace('inactive' , 'active');
+      toolDiv.classList.replace('inactive', 'active');
     }
+
   });
 
   let calculatorDiv = document.getElementById("calculator");
